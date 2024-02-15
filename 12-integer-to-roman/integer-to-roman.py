@@ -5,7 +5,6 @@ class Solution:
         st = ''
         while num>0:
             remainder = num % 10
-            print("Begin : {} - {} - {} - {}".format(pos, remainder, st, num))
             if remainder == 0:
                 pass
             elif remainder < 4:
@@ -20,6 +19,4 @@ class Solution:
                 st = m[(pos*10)/2] + ''.join([m[pos] for _ in range(remainder-5)]) + st
             pos = pos * 10
             num = num // 10
-            print("End : {} - {} - {} - {}".format(pos, remainder, st, num))
-        print(st)
         return st
