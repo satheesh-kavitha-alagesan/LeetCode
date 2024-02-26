@@ -11,8 +11,6 @@ class Solution:
         while left < right:
             mid = (right - left) // 2
             mid = left + mid
-            # print(f'{left = }, {mid = }, {right =}')
-            # print(f'{nums[left] = }, {nums[mid] = }, {nums[right] =}')
             if mid-1 >= 0:
                 if nums[mid -1] < target < nums[mid]:
                     return mid
