@@ -27,17 +27,13 @@ class Solution:
             if target==0:
                 result.append(tempList.copy())
                 return
-            if index>=len(candidates) or target<0:
+            if index>=len(candidates) or  target<0:
                 return
             for i in range(index,len(candidates)):
                 if(target-candidates[i]>=0):
-                    tempList.append(candidates[i])
-                    ## add the same number or 
+                    tempList.append(candidates[i]) 
                     backtracking(i,target-candidates[i])
                     tempList.pop()
-                # add a different number
-            # backtracking(i+1,target)
-            
         backtracking(0,target)
         return result
                 
