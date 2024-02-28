@@ -15,28 +15,6 @@
 #         ret = [list(k) for k in ret]
 #         return ret
 
-# class Solution:
-#     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
-#         ret = []
-#         mapper = [False]*len(nums)
-#         arr = []
-#         def solve():
-#             if len(arr) == len(nums):
-#                 ret.append(arr[:])
-#                 return
-#             used = set()
-#             for i in range(len(nums)):
-#                 if not mapper[i] and nums[i] not in used:
-#                     mapper[i] == True
-#                     arr.append(nums[i])
-#                     used.add(nums[i])
-#                     solve()
-#                     mapper[i] = False
-#                     arr.pop()
-#         print(ret)
-#         solve()
-#         return ret
-
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         ans = []
@@ -44,7 +22,7 @@ class Solution:
         v = [False] * len(nums)
         def backtrack():
             if len(p) == len(nums):
-                ans.append(p[:])
+                ans.append(p.copy())
                 return
             used = set()
             for i in range(len(nums)):
@@ -57,3 +35,28 @@ class Solution:
                     p.pop()
         backtrack()
         return ans
+
+# class Solution:
+#     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+#         countrecd = {}
+#         for i in nums:
+#             if i in countrecd.keys():
+#                 countrecd[i] += 1
+#             else:
+#                 countrecd[i] = 1
+#         rec = []
+
+#         def solve(arr):
+#             if len(arr) == len(nums):
+#                 print(arr)
+#                 rec.append(arr.copy())
+#                 return
+#             for num in countrecd.keys():
+#                 if countrecd[num] > 0:
+#                     countrecd[num] -= 1
+#                     arr.append(num)
+#                     solve(arr)
+#                     arr.pop()
+#                     countrecd[num] += 1
+#         solve([])
+#         return rec
