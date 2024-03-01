@@ -77,7 +77,7 @@ class Solution:
                     break
                 temp.append(candidates[i])
                 worker(i+1,sumi-candidates[i])
-                temp.remove(candidates[i])
+                temp.pop()
 
         worker(0,target)
         return ans                        
