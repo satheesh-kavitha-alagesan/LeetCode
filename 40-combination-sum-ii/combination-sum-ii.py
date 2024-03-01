@@ -60,11 +60,11 @@ class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
         candidates.sort()
         temp = []
-        ans = []
+        ans = set()
         n = len(candidates)
         def worker(idx,sumi):    
             if sumi==0:
-                ans.append(temp[:])
+                ans.add(tuple(sorted(temp[:])))
                 return
                 
             if idx == n:
