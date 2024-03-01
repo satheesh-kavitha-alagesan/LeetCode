@@ -1,4 +1,4 @@
-# class Solution:
+# class Solution: # Not working
 #     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
 #         ret = set()
 #         le = len(candidates)
@@ -21,7 +21,7 @@
 #         print(ret)
 #         return ret
 
-# class Solution:
+# class Solution:# Not working
 #     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
 #         res = []
 #         candidates.sort()
@@ -37,7 +37,7 @@
 #         dfs(0, [], 0)
 #         return res
 
-# class Solution:
+# class Solution:# Not working
 #     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
 #         ds=[]
 #         ans=set()
@@ -81,5 +81,3 @@ class Solution:
 
         worker(0,target)
         return ans                        
-
-        
