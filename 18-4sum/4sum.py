@@ -1,8 +1,8 @@
 # class Solution:
 #     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
-#         ret = []
+#         ret = set()
 #         if len(nums) < 4:
-#             return ret
+#             return []
 #         nums.sort()
 #         start = 0 
 #         end = len(nums) -1
@@ -14,7 +14,7 @@
 #             while p1 < p2:
 #                 print(f'{p1 =}, {p2 = }, {twopointtarget = }, {nums[start] = }, {nums[end] = }, {nums[p1] = }, {nums[p2] = }')
 #                 if nums[p1] + nums[p2] == twopointtarget:
-#                     ret.append([nums[start], nums[p1], nums[p2], nums [end]])
+#                     ret.add(tuple(sorted((nums[start], nums[p1], nums[p2], nums [end]))))
 #                     p1 +=1
 #                     p2 -=1
 #                 elif twopointtarget > p1 and twopointtarget <= p2:
@@ -28,7 +28,7 @@
 #             startchange, endchange = out
 #             start += startchange
 #             end += endchange
-#         return ret
+#         return [list(i) for i in ret]
 
 # class Solution:
 #     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
