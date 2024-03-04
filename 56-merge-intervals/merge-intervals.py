@@ -5,12 +5,10 @@ class Solution:
         ret.append(intervals.pop(0))
         while intervals:
             cur = intervals.pop(0)
-            # print(f'{cur[0] = }, {ret[-1][1] = }, {cur[1] = }')
             if cur[0] <= ret[-1][1] <= cur[1]:
                 ret[-1][1] = cur[1]
             elif (cur[0] >= ret[-1][0]) and (cur[1] <= ret[-1][1]):
                 continue
             else:
                 ret.append(cur)
-        # print(ret)
         return ret
