@@ -6,7 +6,6 @@ class Solution:
         cur = 'l_to_r'
         row, col = (0,0)
         while count <= n*n:
-            print(row,col)
             dp[row][col] = count
             count +=1
             if cur == 'l_to_r':
