@@ -37,6 +37,4 @@ class Solution:
                         continue
                 cur = 'l_to_r'
                 col = col +1
-
-        print(dp)
         return dp
