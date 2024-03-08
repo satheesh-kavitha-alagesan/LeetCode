@@ -1,5 +1,6 @@
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
+        ##Solution1
         # def rec(li):
         #     mid = len(li) // 2
         #     li1 = li[0:mid]
@@ -21,11 +22,13 @@ class Solution:
         #     return temp
         # nums[:] = rec(nums)[:]
 
+        ##Solution2
         # mapping = {0:0, 1:0, 2:0}
         # for num in nums:
         #     mapping[num] += 1
         # nums[:] = [0]*mapping[0] + [1]*mapping[1] + [2]*mapping[2]
 
+        #Solution3
         n = len(nums)
         l, r, i = 0, n-1, 0
 
