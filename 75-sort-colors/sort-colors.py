@@ -21,7 +21,23 @@ class Solution:
         #     return temp
         # nums[:] = rec(nums)[:]
 
-        mapping = {0:0, 1:0, 2:0}
-        for num in nums:
-            mapping[num] += 1
-        nums[:] = [0]*mapping[0] + [1]*mapping[1] + [2]*mapping[2]
+        # mapping = {0:0, 1:0, 2:0}
+        # for num in nums:
+        #     mapping[num] += 1
+        # nums[:] = [0]*mapping[0] + [1]*mapping[1] + [2]*mapping[2]
+
+        n = len(nums)
+        l, r, i = 0, n-1, 0
+
+        while True:
+            if nums[i] == 0:
+                nums[l], nums[i] = nums[i], nums[l]
+                i+=1
+                l+=1
+            elif nums[i] == 1:
+                i+=1
+            else:
+                nums[i], nums[r] = nums[r], nums[i]
+                r -= 1
+            if i > r:
+                break
