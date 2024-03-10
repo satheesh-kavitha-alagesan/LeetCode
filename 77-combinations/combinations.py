@@ -3,6 +3,7 @@ class Solution:
         li = list(range(1,n+1))
         rec = set()
         temp = []
+        dp = [[-1]*n]*n
         def solve(ind):
             if len(temp) == k:
                 rec.add(tuple(temp))
@@ -12,6 +13,8 @@ class Solution:
             temp.append(li[ind])
             solve(ind+1)
             temp.pop()
-            solve(ind+1)
+            dp[ind][ind] = 0
+            if not dp[ind][ind]:
+                solve(ind+1)
         solve(0)
         return rec
