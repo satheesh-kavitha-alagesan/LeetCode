@@ -15,7 +15,7 @@ class Solution:
                 dp[i][j] = rec(i-1, j-1, s1, s2)
                 return dp[i][j]
             else:
-                dp[i][j] = 1+ min(rec(i-1, j, s1, s2), min(rec(i, j-1, s1, s2), rec(i-1, j-1, s1, s2)))
+                dp[i][j] = 1+ min(rec(i-1, j, s1, s2), rec(i, j-1, s1, s2), rec(i-1, j-1, s1, s2))
                 return dp[i][j]
         ret = rec(m-1, n-1, word1, word2)
         return ret
