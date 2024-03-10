@@ -14,5 +14,4 @@ class Solution:
             ret.append(nd.val)
             rec(nd.right)
         rec(root)
-        print(ret)
         return ret
