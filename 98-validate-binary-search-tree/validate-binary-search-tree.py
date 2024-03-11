@@ -22,15 +22,25 @@
 #             return True
 #         return validate(root)
 
+# class Solution:
+#     def isValidBST(self, root: Optional[TreeNode]) -> bool:
+#         prev = float('-inf')
+#         def inorder(node):
+#             nonlocal prev
+#             if not node:
+#                 return True
+#             if not (inorder(node.left) and prev < node.val):
+#                 return False
+#             prev = node.val
+#             return inorder(node.right)
+#         return inorder(root)
+
+
 class Solution:
-    def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        prev = float('-inf')
-        def inorder(node):
-            nonlocal prev
-            if not node:
-                return True
-            if not (inorder(node.left) and prev < node.val):
-                return False
-            prev = node.val
-            return inorder(node.right)
-        return inorder(root)
+    def isValidBST(self, root, floor=float('-inf'), ceiling=float('inf')):
+        if not root:
+            return True
+        if root.val >= ceiling or root.val <= floor:
+            return False 
+        return self.isValidBST(root.left, floor, min(ceiling, root.val)) and \
+               self. isValidBST(root.right, max(floor, root.val), ceiling)
