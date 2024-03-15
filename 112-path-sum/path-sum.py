@@ -18,3 +18,18 @@ class Solution:
                 return True
         
         return rec(root, 0)
+
+# class Solution:
+#     def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+#         if not root:
+#             return False
+#         queue = collections.deque([(root, root.val)])
+#         while queue:
+#             cur, pathSum = queue.popleft()
+#             if not cur.left and not cur.right and pathSum == targetSum:
+#                 return True
+#             if cur.left:
+#                 queue.append((cur.left, pathSum + cur.left.val))
+#             if cur.right:
+#                 queue.append((cur.right, pathSum + cur.right.val))
+#         return False
