@@ -9,18 +9,25 @@ class Node:
 """
 
 class Solution:
-    def connect(self, root):
-        node = root
-        while node:
-            curr = dummy = Node(0)
-            while node:
-                if node.left:
-                    curr.next = node.left
-                    curr = curr.next
-                if node.right:
-                    curr.next = node.right
-                    curr = curr.next
-                node = node.next
-            node = dummy.next
-               
+    def connect(self, root: 'Node') -> 'Node':
+        q = []
+
+        q.append(root)
+        while q:
+            level = q.copy()
+            q.clear()
+
+            for i in range(0, len(level)):
+                if level[i] is None:
+                    continue
+                    
+                if i == len(level)-1:
+                    level[i].next = None
+                else:
+                    level[i].next = level[i+1]
+                
+                if level[i].left:
+                    q.append(level[i].left)
+                if level[i].right:
+                    q.append(level[i].right)
         return root
