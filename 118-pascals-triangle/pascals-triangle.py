@@ -14,5 +14,4 @@ class Solution:
                     temp.append(ret[-1][j-1]+ret[-1][j])
             ret.append(temp)
             temp = []
-        print(ret)
         return ret
