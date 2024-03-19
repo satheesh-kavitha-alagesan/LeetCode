@@ -20,5 +20,6 @@ class Solution:
         
         for d in dp:
             print(np.array(dp))
+            print('-------------')
 
         return dp[m][n]
