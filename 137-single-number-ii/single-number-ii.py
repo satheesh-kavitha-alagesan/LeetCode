@@ -5,5 +5,4 @@ class Solution:
             store[num] = store[num] + 1
             if store[num] == 3:
                 del store[num]
-        print(f'{store = }')
         return list(store.keys())[0]
