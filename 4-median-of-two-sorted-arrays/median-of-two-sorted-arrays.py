@@ -12,5 +12,4 @@ class Solution:
             li = li+ nums2
         if len(li) % 2 == 1:
             return li[len(li) // 2]
-        else:
-            return (li[(len(li) // 2) -1] + li[(len(li) // 2)]) /2
+        return (li[(len(li) // 2) -1] + li[(len(li) // 2)]) /2
