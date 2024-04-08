@@ -38,10 +38,8 @@ class Solution:
             else:
                 wordc[wd] = 1
             
-        lengofst = len(s)
         lowd = len(words[0])
-        reqlen = lowd*len(words)
-        for ind in range(lengofst +1 - reqlen):
+        for ind in range(len(s) +1 - lowd*len(words)):
             stf = s[ind::]
             curwd = stf[0:lowd]
             tempword = defaultdict(int)
