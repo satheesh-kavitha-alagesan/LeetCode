@@ -6,8 +6,8 @@
 #         self.right = right
 class Solution:
     def addOneRow(self, root: Optional[TreeNode], val: int, depth: int) -> Optional[TreeNode]:
-        if depth == 1:
-            return TreeNode(val, left = root)
+        # if depth == 1:
+        #     return TreeNode(val, left = root)
         def rec(node, stage, side = 'l'):
             if stage == depth:
                 if side == 'l':
