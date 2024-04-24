@@ -1,3 +1,42 @@
+
+# Time Complex solution
+# class Solution:
+#     def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
+#         if not edges:
+#             return [0]
+#         dd = defaultdict(list)
+#         mindp = float('inf')
+#         ret = []
+#         for le, re in edges:
+#             dd[le].append(re)
+#             dd[re].append(le)
+
+#         def rec(used, dep, q):
+#             nq = deque()
+#             while q:
+#                 cur = q.popleft()
+#                 for k in dd[cur]:
+#                     if not k in used:
+#                         used.add(k)
+#                         nq.append(k)
+#             if nq:
+#                 return rec(used, dep+1, nq)
+#             else:
+#                 return dep
+
+#         for key in dd.keys():
+#             used = set()
+#             used.add(key)
+#             q = deque()
+#             q.append(key)
+#             cudp = rec(used, 1, q)
+#             if cudp < mindp:
+#                 mindp = cudp
+#                 ret = [key]
+#             elif cudp == mindp:
+#                 ret.append(key)
+#         return ret
+
 class Solution:
     def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
         counts = [0] * n
