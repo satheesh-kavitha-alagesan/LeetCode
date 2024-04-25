@@ -1,18 +1,7 @@
 class Solution:
     def longestIdealString(self, s: str, k: int) -> int:
         dp = [0] * 27
-        n = len(s)
-
-        for i in range(n - 1, -1, -1):
-            cc = s[i]
-            idx = ord(cc) - ord('a')
-            maxi = float('-inf')
-
-            left = max((idx - k), 0)
-            right = min((idx + k), 26)
-
-            maxi = max(maxi, max(dp[left: right + 1]))
-
-            dp[idx] = maxi + 1
-
+        for i in range(len(s) - 1, -1, -1):
+            idx = ord(s[i]) - ord('a')
+            dp[idx] = max(0, max(dp[max((idx - k), 0): min((idx + k), 26) + 1])) +1
         return max(dp)
