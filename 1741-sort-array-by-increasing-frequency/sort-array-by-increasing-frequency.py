@@ -1,15 +1,13 @@
-from collections import defaultdict
-
 class Solution:
     def frequencySort(self, nums: List[int]) -> List[int]:
-        numCountMapping = defaultdict(int)
-        for _num in nums :
-            numCountMapping[_num] += 1
-        countValMap = defaultdict(list)
-        for _k, _v in numCountMapping.items():
-            countValMap[_v].append(_k)
-        res = []
-        for occur in sorted(list(countValMap.keys())):
-            for num in sorted(countValMap[occur], reverse = True): 
-                res.extend([num]*occur)
-        return res
+        freq_count = {}
+        for i in range(len(nums)):
+            freq_count[nums[i]] = freq_count.get(nums[i], 0) + 1
+
+        sorted_freq_count = sorted(freq_count.items(), key=lambda x: (x[1],-x[0]))
+        
+        nums = []
+        for i in range(len(sorted_freq_count)):
+            val, freq = sorted_freq_count[i]
+            nums.extend([val]*freq)
+        return nums
